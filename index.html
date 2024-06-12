@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: "Teko", sans-serif;
+
+    }
+    .container{
+        height: 500px;
+        width: 500px;
+        border: 1px solid black;
+        border-radius: 40px;
+        background-image:url("./asset/minimalist.jpg");
+        
+        position: relative;
+        left: 35%;
+        top: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        background-image: url("./asset/minimalist.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        border: none;
+        
+        
+    }
+    .con{
+        height: 500px;
+        width: 500px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        border-radius: 40px;
+    }
+    .con:hover{
+        transition:all ease-in-out  1s;
+        backdrop-filter: blur(0px);
+    }
+    .login{
+        position: absolute;
+        left:45%;
+        top: 20px;
+       
+
+    }
+    .login p{
+        margin-left: -40px;
+    }
+    .feilds input{
+      margin: 10px;
+      font-size: 20px;
+      border-radius: 20px;
+      border: none;
+    
+    
+    }
+
+    .feilds{
+        margin-left: -120px;
+        margin-top: 20px;
+        
+        padding: 40px;
+        
+    }
+    .buttons button{
+        padding: 10px;
+        font-size: 20px;
+        background-color: black;
+        color: aliceblue;
+        border-radius: 40px;
+        border: none;
+    }
+    .buttons button:hover{
+        background-color: grey;
+        transition: ease-in-out .5s;
+    }
+    .buttons{
+        margin-top: 20px;
+        margin-left: 60px;
+    }
+    .feilds label{
+        font-size: large;
+    }
+    input{
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="con">
+            <div class="login">
+                <h1>login</h1>
+                <p>login to see more information</p>
+               
+                <div class="feilds">
+                   <label>FirstName:</label>
+                   <input type="text" id="inp1" required placeholder="firstname"><br>
+                   <label>username:</label>
+                   <input type="text" id="inp2" required placeholder=username><br><br>
+                   <label for="" id="error" style="margin-top: -10px; display: none; ">enter Minimum 8 charachters</label><br>
+                   <label>password:</label>
+                   <input type="password" id="inp3" required placeholder="password" required><br><br>
+                   <label for="" id="error1" style="display: none;">password should start with alphabets</label>
+               
+                   <div class="buttons">
+                    <button>Login</button>
+                    <button onclick="clear()">Cancel</button>
+                   </div>
+           
+                  </div>
+            </div>
+        </div>
+        
+      
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $("#inp2").blur(function(){
+                var text=$(this).val()
+
+                if(text.length<8){
+                   $("#error").show()
+                }else{
+                   $("#error").hide()
+                }
+            })
+
+            $("#inp3").blur(function(){
+                var text=$(this).val()
+
+                if(text.length<8){
+                   $("#error1").show()
+                }else{
+                   $("#error1").hide()
+                }
+            })
+        })
+
+    </script>
+</body>
+</html>
